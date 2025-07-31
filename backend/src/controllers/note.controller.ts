@@ -22,3 +22,16 @@ export const createNote = async (req: AuthRequest, res: Response) => {
   }
 };
 
+export const getNotes = async(req:AuthRequest,res:Response) => {
+
+    try {
+        const note = await NoteModel.findOne({user:req.user.id});
+
+        res.json(note)
+    } catch (error) {
+        console.log("error finding notes");
+        res.status(500).json({message:"error finding notes"})
+    }
+
+}
+
