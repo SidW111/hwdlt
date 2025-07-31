@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken";
-import { IUser } from "../modals/user.model";
+import { IUser } from "../models/user.model";
 import dotenv from "dotenv";
 dotenv.config();
 

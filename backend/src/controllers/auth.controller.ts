@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import admin from "../firebase/admin";
-import userModel from "../modals/user.model";
+import userModel from "../models/user.model";
 import { generateToken } from "../utils/generateToken";
 
 export const verifyFireBaseToken = async (req: Request, res: Response) => {
@@ -30,4 +30,3 @@ export const verifyFireBaseToken = async (req: Request, res: Response) => {
     return res.status(401).json({ error: "Invalid firebase token" });
   }
 };
-

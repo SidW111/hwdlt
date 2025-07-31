@@ -28,7 +28,7 @@ const Login = () => {
       const data = await response.json();
       console.log("backend response:", data);
       localStorage.setItem("token", data.token);
-      navigate("/notes");
+      navigate("/dashboard");
     } catch (error) {
       console.log("login error", error);
     }
