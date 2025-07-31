@@ -47,3 +47,26 @@ export const deleteNote = async (req: AuthRequest, res: Response) => {
     res.status(500).json({ error: "Failed to delete note" });
   }
 };
+
+export const updateNote = async (req: AuthRequest, res: Response) => {
+  const noteId = req.params.id;
+  const { title, content } = req.body;
+
+  try {
+    const note = await NoteModel.findOneAndUpdate(
+      { _id: noteId, user: req.user.id },
+      { title, content },
+      { new: true }
+    );
+    if (!note) {
+      return res.status(404).json({ error: "Note not found or unauthorized" });
+    }
+    res.json({ message: "note updated successfully", note });
+  } catch (error) {
+    console.log("error updating the notes", error),
+      res.status(500).json({
+        error: "failed to update note",
+        errorr:error
+      });
+  }
+};
