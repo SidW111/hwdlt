@@ -1,11 +1,16 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
+import Login from "./pages/Login";
 
 const App = () => {
   return (
-    <div className="text-6xl hover:bg-black hover:text-white transition-all duration-1000">
-      hii
-    </div>
-  );
+    <BrowserRouter>
+    <Routes>
+      <Route path="/login" element={<Login/>}/>
+    </Routes>
+    </BrowserRouter>
+      
+      );
 };
 
 export default App;
