@@ -3,6 +3,7 @@ import cors from "cors";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import { verifyFireBaseToken } from "./controllers/auth.controller";
+import authRouter from "./routes/auth.route";
 
 dotenv.config();
 
@@ -10,11 +11,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.use("/api",(req,res)=>{
-res.json({
-    message:"api ruinning successfully",
-})
-});
+app.use("/api",authRouter);
 
 mongoose
   .connect(process.env.MONGO_URI!)

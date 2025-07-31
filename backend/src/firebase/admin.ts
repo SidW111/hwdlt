@@ -5,4 +5,4 @@ admin.initializeApp({
     credential: admin.credential.cert(ServiceAccout as admin.ServiceAccount)
 });
 
-export default admin
+export default admin;
