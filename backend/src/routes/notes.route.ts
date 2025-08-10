@@ -5,9 +5,9 @@ import authMiddleWare from "../middlewares/authMiddleware"
 
 const notesRouter = express.Router()
 
-notesRouter.post("/create",authMiddleWare,createNote);
-notesRouter.get("/get",authMiddleWare,getNotes);
-notesRouter.post("/update/:id",authMiddleWare,updateNote);
-notesRouter.delete("/delete/:id",authMiddleWare,deleteNote)
+notesRouter.post("/",authMiddleWare,createNote);
+notesRouter.get("/",authMiddleWare,getNotes);
+notesRouter.post("/:id",authMiddleWare,updateNote);
+notesRouter.delete("/:id",authMiddleWare,deleteNote)
 
 export default notesRouter
