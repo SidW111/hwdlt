@@ -18,6 +18,7 @@ const Signup = () => {
     url: "http://localhost:5173/verify", // ✅ must match redirect domain added in Firebase
     handleCodeInApp: true,
   };
+  
 
   const sendOtpLink = async (email: string) => {
     try {
